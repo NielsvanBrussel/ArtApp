@@ -1,0 +1,88 @@
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.auth__container__outer {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+}
+
+.auth__container__outer .auth__container__inner {
+  background-color: #fff;
+  color: #00253e;
+  border: #c29b40 4px solid;
+  width: 40vw;
+  max-width: 35rem;
+  min-width: 25rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1rem;
+  min-height: 70vh;
+  max-height: 70vh;
+  position: relative;
+  -webkit-animation: fade-in 0.3s forwards;
+          animation: fade-in 0.3s forwards;
+}
+
+.auth__container__outer .auth__container__inner .auth__button__container {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+
+.auth__container__outer .auth__container__inner .auth__button__container .auth__button {
+  cursor: pointer;
+  color: #00253e;
+}
+
+.auth__container__outer .auth__container__inner .auth__button__container .auth__button:hover {
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+  color: #c29b40;
+}
+/*# sourceMappingURL=Authentication.module.css.map */

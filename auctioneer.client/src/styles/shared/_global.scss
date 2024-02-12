@@ -1,0 +1,14 @@
+@import './colours';
+
+
+.link {
+    text-decoration: none;
+}
+
+h1 {
+    color: $colour-grey-font;
+    font-size: 4rem;
+    font-family: 'WorkSans';
+    text-decoration: underline solid $colour-blue;
+    text-underline-offset: 10px;
+}

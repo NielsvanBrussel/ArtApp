@@ -1,0 +1,47 @@
+@import '../styles//shared/colours';
+@import '../styles//shared/global';
+@import '../styles//shared/keyframes';
+
+
+.avatar__container__outer {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 10rem;
+    align-items: center;
+    animation: fade-in 0.5s forwards;
+    z-index: 2;
+    .avatar__icon {
+        color: $colour-blue;
+    }
+    .dropdown__container__outer {
+        position: absolute;
+        background-color: $colour-blue;
+        top: 8rem;
+        z-index: 2;
+        animation: fade-in forwards 0.5s;
+        border: $colour-grey-font 1px solid;
+        .dropdown__container__inner {
+            padding: 2rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+            button, .link {
+                background-color: transparent;
+                color: $colour-white-font;
+                border: 2px solid transparent;
+                font-size: 1rem;
+                font-family: 'WorkSansSemiBold';
+                cursor: pointer;
+                padding: 0.5rem 0;
+            }
+            button:hover, .link:hover {
+                transition: color 0.4s ease;
+                color: $colour-gold;
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+@font-face {
+  font-family: "GreatVibes";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/GreatVibes-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "WorkSans";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/workssans/WorkSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "WorkSansBold";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/workssans/WorkSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "WorkSansSemiBold";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/workssans/WorkSans-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "WorkSansThin";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/workssans/WorkSans-Thin.ttf") format("truetype");
+}
+
+
+

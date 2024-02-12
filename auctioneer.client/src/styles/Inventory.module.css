@@ -1,0 +1,148 @@
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
+
+h1 {
+  color: #333;
+  font-size: 4rem;
+  font-family: 'WorkSans';
+  -webkit-text-decoration: underline solid #00253e;
+          text-decoration: underline solid #00253e;
+  text-underline-offset: 10px;
+}
+
+.inventory__items__container__outer {
+  margin: 0 2vw;
+}
+
+.inventory__items__container__outer .inventory__items__container__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 3rem;
+  margin: 0 auto;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.inventory__item__container__outer {
+  border-bottom: #c29b40 8px solid;
+}
+
+.inventory__item__container__outer .inventory__item__container__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 2vw;
+}
+
+.inventory__item__container__outer .inventory__item__container__inner .inventory__item__image__container {
+  min-width: 10rem;
+  min-height: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
+  background-color: #00253e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.inventory__item__container__outer .inventory__item__container__inner .inventory__item__image__container h3 {
+  text-align: center;
+}
+
+.inventory__item__container__outer .inventory__item__container__inner .inventory__item__image__container .inventory__item__image {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.inventory__item__container__outer .inventory__item__container__inner .inventory__item__text__container__outer .inventory__item__text__container__inner {
+  color: #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: calc(100% - 1rem);
+  margin: 0 0 1rem 0;
+  overflow: hidden;
+}
+
+.inventory__item__container__outer .inventory__item__container__inner .inventory__item__text__container__outer .inventory__item__text__container__inner h4 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.inventory__item__container__outer .inventory__item__container__inner .inventory__item__text__container__outer .inventory__item__text__container__inner button {
+  color: #00253e;
+  -webkit-text-decoration: underline solid transparent;
+          text-decoration: underline solid transparent;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.25rem;
+  -webkit-transition: -webkit-text-decoration 0.5s ease;
+  transition: -webkit-text-decoration 0.5s ease;
+  transition: text-decoration 0.5s ease;
+  transition: text-decoration 0.5s ease, -webkit-text-decoration 0.5s ease;
+  text-underline-offset: 4px;
+  margin: 0;
+  padding: 0;
+  text-align: start;
+}
+
+.inventory__item__container__outer .inventory__item__container__inner .inventory__item__text__container__outer .inventory__item__text__container__inner button:hover {
+  -webkit-text-decoration: underline solid #c29b40;
+          text-decoration: underline solid #c29b40;
+}
+/*# sourceMappingURL=Inventory.module.css.map */

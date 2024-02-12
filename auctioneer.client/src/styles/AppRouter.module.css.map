@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,4BAA4B,CAAC;EACzB,WAAW,EAAE,UAAU;CAC1B;;AAED,AAAA,iBAAiB,CAAC;EACd,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,MAAM;CACjB;;AAED,AAAA,iBAAiB,CAAC;EACd,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,KAAK;CAChB",
+    "sources": [
+        "../AppRouter.module.scss"
+    ],
+    "names": [],
+    "file": "AppRouter.module.css"
+}

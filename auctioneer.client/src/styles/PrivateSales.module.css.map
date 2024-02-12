@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,+BAA+B,CAAC;EAC5B,MAAM,EAAE,MAAM;EACd,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,GAAG,EAAE,IAAI;CACZ",
+    "sources": [
+        "../pages/PrivateSales.module.scss"
+    ],
+    "names": [],
+    "file": "PrivateSales.module.css"
+}

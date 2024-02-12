@@ -1,0 +1,89 @@
+@import '../styles/shared/colours';
+@import '../styles/shared/keyframes';
+
+.artwork__container__outer {
+    margin: 3rem 0;
+    .artwork__container__inner {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 3rem;
+    }
+}
+
+
+.artwork__text__container__outer {
+    color: $colour-grey-font;
+    width: 50%;
+    max-width: 40rem;
+    height: 70vh;
+    .artwork__text__container__inner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .flexbox {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            .category {
+                min-width: 8rem;
+            }
+        }
+    }
+    .sales__container {
+        margin-top: 3rem;
+        .flexbox {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-top: $colour-grey-font 1px solid;
+            font-size: 2rem;
+            p {
+                margin: 1rem 0rem;
+            }
+            .category {
+                min-width: 8rem;
+            }
+        }
+
+        button {
+            width: 100%;
+            font-size: 2rem;
+            color: $colour-grey-font;
+            background-color: transparent;
+            border: $colour-grey-font solid 2px;
+            padding: 0.5rem 0;
+            border-radius: 5px;
+            transition: border 0.5s, color 0.5s;
+            cursor: pointer;
+        }
+        button:hover {
+            color: $colour-blue-light;
+            border: $colour-blue-light solid 2px;
+        }
+    }
+}
+
+
+
+.artwork__image__container__outer {
+    max-width: 40vw;
+    width: 40vw;
+    height: 70vh;
+    background-color: $colour-blue;
+    .artwork__image__container__inner {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .artwork__image {
+            max-height: 100%;
+            max-width: 100%;
+            display: block;
+        }
+    }
+}

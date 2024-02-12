@@ -1,0 +1,151 @@
+.auth__content {
+  width: 60%;
+  color: #00253e;
+  height: 100%;
+}
+
+.auth__content .auth__content__inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 20rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.auth__content .auth__content__inner .error__container {
+  text-align: center;
+  color: #c29b40;
+  min-height: 10rem;
+}
+
+.auth__content .auth__content__inner .form {
+  margin: 2rem 0rem;
+  overflow: hidden;
+}
+
+.auth__content .auth__content__inner .form__input {
+  border-top: none;
+  color: #00253e;
+  border-right: none;
+  border-left: none;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  border-bottom: solid 2px #c29b40;
+  outline: none;
+  font-size: 1rem;
+  font-family: 'WorkSans';
+}
+
+.auth__content .auth__content__inner .form__input:-ms-input-placeholder, .auth__content .auth__content__inner .form__input::-ms-input-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.auth__content .auth__content__inner .form__input::-ms-input-placeholder, .auth__content .auth__content__inner .form__input::-ms-input-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.auth__content .auth__content__inner .form__input::placeholder, .auth__content .auth__content__inner .form__input::-ms-input-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.auth__content .auth__content__inner .submit__container {
+  margin-top: 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  min-height: 4rem;
+}
+
+.auth__content .auth__content__inner .title {
+  font-size: 4rem;
+  padding: 0;
+  text-align: center;
+  margin: 2rem 0rem;
+}
+
+.auth__content .auth__content__inner .button {
+  text-decoration: none;
+  color: #fff;
+  border: solid #c29b40 3px;
+  border-radius: 8px;
+  padding: 0.5rem 0rem;
+  text-align: center;
+  font-size: 1.5rem;
+  min-width: 50%;
+  width: 50%;
+  background-color: #00253e;
+  line-height: 2rem;
+  cursor: pointer;
+}
+
+.auth__content .auth__content__inner .button:hover {
+  -webkit-transition: color 0.5s ease-out, border-color 0.5s ease-out;
+  transition: color 0.5s ease-out, border-color 0.5s ease-out;
+  color: #c29b40;
+  border-color: #c29b40;
+}
+
+@media screen and (max-width: 65em) {
+  .login__section .flexbox1 {
+    display: block;
+    width: 100%;
+  }
+  .login__section .login__content {
+    margin: 0 0rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    max-width: 100%;
+  }
+  .login__section .login__content .login__content__inner {
+    width: 80%;
+    position: relative;
+  }
+  .login__section .login__content .login__content__inner .button {
+    display: block;
+  }
+  .login__section .login__section_title {
+    font-size: 3rem;
+    padding: 0;
+  }
+  .login__section .logo__wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 20rem;
+    border-right: none;
+    border-bottom: solid black 4px;
+  }
+  .login__section .logo__wrapper .logo {
+    margin-top: 0rem;
+    height: 100%;
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=Auth.module.css.map */

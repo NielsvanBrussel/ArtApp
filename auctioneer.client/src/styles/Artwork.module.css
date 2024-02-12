@@ -1,0 +1,151 @@
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.artwork__container__outer {
+  margin: 3rem 0;
+}
+
+.artwork__container__outer .artwork__container__inner {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 3rem;
+}
+
+.artwork__text__container__outer {
+  color: #333;
+  width: 50%;
+  max-width: 40rem;
+  height: 70vh;
+}
+
+.artwork__text__container__outer .artwork__text__container__inner {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.artwork__text__container__outer .artwork__text__container__inner .flexbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.artwork__text__container__outer .artwork__text__container__inner .flexbox .category {
+  min-width: 8rem;
+}
+
+.artwork__text__container__outer .sales__container {
+  margin-top: 3rem;
+}
+
+.artwork__text__container__outer .sales__container .flexbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-top: #333 1px solid;
+  font-size: 2rem;
+}
+
+.artwork__text__container__outer .sales__container .flexbox p {
+  margin: 1rem 0rem;
+}
+
+.artwork__text__container__outer .sales__container .flexbox .category {
+  min-width: 8rem;
+}
+
+.artwork__text__container__outer .sales__container button {
+  width: 100%;
+  font-size: 2rem;
+  color: #333;
+  background-color: transparent;
+  border: #333 solid 2px;
+  padding: 0.5rem 0;
+  border-radius: 5px;
+  -webkit-transition: border 0.5s, color 0.5s;
+  transition: border 0.5s, color 0.5s;
+  cursor: pointer;
+}
+
+.artwork__text__container__outer .sales__container button:hover {
+  color: #23448d;
+  border: #23448d solid 2px;
+}
+
+.artwork__image__container__outer {
+  max-width: 40vw;
+  width: 40vw;
+  height: 70vh;
+  background-color: #00253e;
+}
+
+.artwork__image__container__outer .artwork__image__container__inner {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.artwork__image__container__outer .artwork__image__container__inner .artwork__image {
+  max-height: 100%;
+  max-width: 100%;
+  display: block;
+}
+/*# sourceMappingURL=Artwork.module.css.map */

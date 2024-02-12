@@ -1,0 +1,100 @@
+.link {
+  text-decoration: none;
+}
+
+h1 {
+  color: #333;
+  font-size: 4rem;
+  font-family: 'WorkSans';
+  -webkit-text-decoration: underline solid #00253e;
+          text-decoration: underline solid #00253e;
+  text-underline-offset: 10px;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.avatar__container__outer {
+  position: relative;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 10rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-animation: fade-in 0.5s forwards;
+          animation: fade-in 0.5s forwards;
+  z-index: 2;
+}
+
+.avatar__container__outer .avatar__icon {
+  color: #00253e;
+}
+
+.avatar__container__outer .dropdown__container__outer {
+  position: absolute;
+  background-color: #00253e;
+  top: 8rem;
+  z-index: 2;
+  -webkit-animation: fade-in forwards 0.5s;
+          animation: fade-in forwards 0.5s;
+  border: #333 1px solid;
+}
+
+.avatar__container__outer .dropdown__container__outer .dropdown__container__inner {
+  padding: 2rem 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.avatar__container__outer .dropdown__container__outer .dropdown__container__inner button, .avatar__container__outer .dropdown__container__outer .dropdown__container__inner .link {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  font-family: 'WorkSansSemiBold';
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.avatar__container__outer .dropdown__container__outer .dropdown__container__inner button:hover, .avatar__container__outer .dropdown__container__outer .dropdown__container__inner .link:hover {
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: #c29b40;
+}
+/*# sourceMappingURL=Avatar.module.css.map */

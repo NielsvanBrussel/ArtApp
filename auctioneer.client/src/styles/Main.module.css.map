@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../pages/Main.module.scss"
+    ],
+    "names": [],
+    "file": "Main.module.css"
+}

@@ -1,0 +1,209 @@
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.carousel__container__outer {
+  width: 100%;
+  height: 45rem;
+  overflow: hidden;
+  border-bottom: #c29b40 8px solid;
+  position: relative;
+}
+
+.carousel__container__outer .carousel__loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel__container__outer .carousel__navigation__container {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+.carousel__container__outer .carousel__navigation__container .carousel__navigation__button {
+  opacity: 0.7;
+  cursor: pointer;
+  -webkit-transition: opacity 0.5s, background-color 1s;
+  transition: opacity 0.5s, background-color 1s;
+  border-radius: 10rem;
+  background-color: rgba(0, 37, 62, 0.5);
+}
+
+.carousel__container__outer .carousel__navigation__container .carousel__navigation__button:hover {
+  opacity: 1;
+  background-color: rgba(0, 37, 62, 0.9);
+}
+
+.carousel__container__outer .carousel__navigation__container .carousel__navigation__dot__empty, .carousel__container__outer .carousel__navigation__container .carousel__navigation__dot__filled {
+  border: #c29b40 solid 3px;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
+}
+
+.carousel__container__outer .carousel__navigation__container .carousel__navigation__dot__filled {
+  background-color: #c29b40;
+}
+
+.carousel__container__outer .carousel__container__inner {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-transition: -webkit-transform 0.6s ease;
+  transition: -webkit-transform 0.6s ease;
+  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, -webkit-transform 0.6s ease;
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container {
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #fff;
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container .slide__image__container {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container .slide__image__container .slide__image__error {
+  color: #00253e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container .slide__image__container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__left {
+  left: 2rem;
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__right {
+  right: 2rem;
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__left, .carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__right {
+  position: absolute;
+  bottom: 4rem;
+  width: 25vw;
+  min-width: 20rem;
+  background-color: rgba(0, 37, 62, 0.9);
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__left .slide__text__container__inner, .carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__right .slide__text__container__inner {
+  margin: 1rem 2vw;
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__left .slide__text__container__inner button, .carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__right .slide__text__container__inner button {
+  color: #c29b40;
+  -webkit-text-decoration: underline solid transparent;
+          text-decoration: underline solid transparent;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.25rem;
+  -webkit-transition: -webkit-text-decoration 0.5s ease;
+  transition: -webkit-text-decoration 0.5s ease;
+  transition: text-decoration 0.5s ease;
+  transition: text-decoration 0.5s ease, -webkit-text-decoration 0.5s ease;
+  text-underline-offset: 4px;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__left .slide__text__container__inner button:hover, .carousel__container__outer .carousel__container__inner .slide__container .slide__text__container__outer__right .slide__text__container__inner button:hover {
+  -webkit-text-decoration: underline solid #c29b40;
+          text-decoration: underline solid #c29b40;
+}
+/*# sourceMappingURL=Carousel.module.css.map */

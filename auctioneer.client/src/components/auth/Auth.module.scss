@@ -1,0 +1,125 @@
+@import '../../styles//shared/colours';
+
+
+.auth__content {
+    width: 60%;
+    color: $colour-blue;
+    height: 100%;
+    .auth__content__inner {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 20rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .error__container {
+            text-align: center;
+            color: $colour-gold;
+            min-height: 10rem;
+        }
+        .form {
+           margin: 2rem 0rem; 
+           overflow: hidden;
+        }
+        .form__input {
+            border-top: none;
+            color: $colour-blue;
+            border-right: none;
+            border-left: none;
+            width: 100%;
+            overflow: hidden;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            background-color: transparent;
+            border-bottom: solid 2px $colour-gold;
+            outline: none;
+            font-size: 1rem;
+            font-family: 'WorkSans';
+        }
+        .form__input::placeholder, .form__input::-ms-input-placeholder {
+            color: $colour-white-font;
+            opacity: 1;
+        }
+        .submit__container {
+            margin-top: 0rem;
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            width: 100%;
+            min-height: 4rem;
+        }
+        .title {
+            font-size: 4rem;
+            padding: 0;
+            text-align: center;
+            margin: 2rem 0rem;
+        }
+        .button {
+            text-decoration: none;
+            color: $colour-white-font;
+            border: solid $colour-gold 3px;
+            border-radius: 8px;
+            padding: 0.5rem 0rem;
+            text-align: center;
+            font-size: 1.5rem;
+            min-width: 50%;
+            width: 50%;
+            background-color: $colour-blue;
+            line-height: 2rem;
+            cursor: pointer;
+        }
+        .button:hover {
+            transition: color 0.5s ease-out, border-color 0.5s ease-out;
+            color: $colour-gold;
+            border-color: $colour-gold;
+        }  
+    }
+}
+
+
+@media screen and (max-width: 65em) {
+.login__section {
+    .flexbox1 {
+        display: block;
+        width: 100%;
+    }
+    .login__content {
+        margin: 0 0rem;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        max-width: 100%;
+        
+        .login__content__inner {
+            width: 80%;
+            position: relative;
+            .button {
+                display: block;
+            }
+           
+        }
+    }
+    .login__section_title {
+        font-size: 3rem;
+        padding: 0;
+    }
+    .logo__wrapper {
+        
+        width: 100%;
+        height: 100%;
+        min-height: 20rem;    // change height of logo here 
+        border-right: none;
+        border-bottom: solid black 4px;
+       
+        .logo {
+            margin-top: 0rem;
+            height: 100%;
+            width: 100%; 
+        }
+    }
+
+}
+}
