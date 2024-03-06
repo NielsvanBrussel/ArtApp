@@ -2,9 +2,16 @@
     font-family: "WorkSans";
 }
 
+.approuter__container__inner {
+    font-family: "WorkSans";
+    position: relative;
+    padding-bottom: 10rem;
+    min-height: calc(100vh - 10rem);
+}
+
 .container__outer {
     max-width: 100rem;
-    margin: 0 auto;
+    margin: 0rem auto;
 }
 
 .container__inner {

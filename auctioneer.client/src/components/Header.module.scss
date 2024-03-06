@@ -50,10 +50,10 @@
                 text-decoration: underline solid transparent;
                 transition: text-decoration 0.4s ease;
                 text-underline-offset: 4px;
-                animation: fade-in 0.5s forwards;
+                animation: fade-in 0.6s forwards;
             }
             .header__nav__button:hover {
-                transition: color 0.4s ease;
+                transition: color 0.6s ease;
                 text-decoration: underline solid $colour-gold;
                 color: $colour-gold;
             }

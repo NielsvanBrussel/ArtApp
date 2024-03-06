@@ -9,6 +9,132 @@ h1 {
     color: $colour-grey-font;
     font-size: 4rem;
     font-family: 'WorkSans';
-    text-decoration: underline solid $colour-blue;
-    text-underline-offset: 10px;
+    // text-decoration: underline solid $colour-blue;
+    // text-underline-offset: 10px;
+}
+
+.button {
+    text-decoration: none;
+    color: $colour-white-font;
+    border: solid $colour-gold 3px;
+    border-radius: 8px;
+    padding: 0.25rem calc(1rem + 1vw);
+    text-align: center;
+    font-size: 1rem;
+    background-color: $colour-blue;
+    line-height: 2rem;
+    cursor: pointer;
+    font-family: "WorkSansSemiBold";
+}
+
+.inactive {
+    filter: grayscale(60%);
+    cursor: auto !important;
+}
+
+.button:hover {
+    transition: color 0.5s ease-out, border-color 0.5s ease-out;
+    color: $colour-gold;
+    border-color: $colour-gold;
+}  
+
+.page__header {
+    height: 5rem;
+    margin: 5rem 0 5rem 5vw;
+}
+
+.loading__container {
+    // height - page header - site header - footer - page margin
+    height: calc(100vh - 15rem - 8rem - 5rem - 4rem - 1px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button__link {
+    color: $colour-blue;
+    text-decoration: underline solid transparent;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.25rem;
+    transition: text-decoration 0.5s ease;
+    text-underline-offset: 4px;
+    margin: 0;
+    padding: 0;
+    text-align: start;
+    font-family: "WorkSansSemiBold";
+}
+.button__link:hover {
+    text-decoration: underline solid $colour-gold;
+}
+
+
+.blue__font {
+    color: $colour-blue;
+}
+
+
+
+.inventory__item__container__outer {
+    border-bottom: $colour-gold 8px solid;
+
+    .inventory__item__container__inner {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 2vw;
+        .inventory__item__image__container {
+            min-width: 12rem;
+            min-height: 12rem;
+            max-width: 12rem;
+            max-height: 12rem;
+            background-color: $colour-blue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h3 {
+                text-align: center;
+            }
+            .inventory__item__image {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .inventory__item__text__container__outer {
+            width: 100%;
+            .inventory__item__text__container__inner {
+                color: $colour-grey-font;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: calc(100% - 1rem);
+                margin: 0 0 1rem 0;
+                overflow: hidden;
+               
+                h4 {
+                    margin: 0;
+                    font-size: 1.25rem;
+                }
+                h4, p {
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1; /* number of lines to show */
+                            line-clamp: 1; 
+                    -webkit-box-orient: vertical;
+                }
+                .inventory__item__button__container {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin: 0 2vw 0 0;
+                }
+            }
+
+        }
+
+    }
 }

@@ -1,4 +1,5 @@
 @import '../../styles//shared/colours';
+@import '../../styles//shared/global';
 
 
 .auth__content {
@@ -57,25 +58,6 @@
             text-align: center;
             margin: 2rem 0rem;
         }
-        .button {
-            text-decoration: none;
-            color: $colour-white-font;
-            border: solid $colour-gold 3px;
-            border-radius: 8px;
-            padding: 0.5rem 0rem;
-            text-align: center;
-            font-size: 1.5rem;
-            min-width: 50%;
-            width: 50%;
-            background-color: $colour-blue;
-            line-height: 2rem;
-            cursor: pointer;
-        }
-        .button:hover {
-            transition: color 0.5s ease-out, border-color 0.5s ease-out;
-            color: $colour-gold;
-            border-color: $colour-gold;
-        }  
     }
 }
 

@@ -50,7 +50,7 @@ const PrivateSales = () => {
                     return <PrivateSaleItem data={sale} />
                 }
             } else {
-                return <PrivateSaleItem data={sale} />
+                return <PrivateSaleItem data={sale} getSales={getSales} />
             }
         })}
     </div>

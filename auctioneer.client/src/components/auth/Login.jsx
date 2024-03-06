@@ -52,6 +52,7 @@ const Login = () => {
         .then(res => {
             setLoading(false)
             if (!res.data.error) {
+                console.log(res.data.user)
                 setUser(res.data.user)
                 setAuthenticated(true)
                 localStorage.setItem("JWT", res.data.jwt)
@@ -94,7 +95,8 @@ const Login = () => {
                 </div>
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.form__input__container}>
-                        <input 
+                        <input
+                            autoFocus 
                             className={styles.form__input} 
                             type="text" value={username} 
                             disabled={loading} 
@@ -115,7 +117,7 @@ const Login = () => {
                         />
                     </div>
                     <div className={styles.submit__container}>
-                        {!loading && <button className={styles.button} type="submit">log in</button>}
+                        {!loading && <button className={styles.button} type="submit">LOG IN</button>}
                     </div>
                 </form>
                 {/* <p>already have an account? login <Link className={`${styles.link} ${styles.button__left}`} to="/login">here</Link></p> */}

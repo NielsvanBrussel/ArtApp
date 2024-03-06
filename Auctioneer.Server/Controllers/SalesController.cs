@@ -148,7 +148,7 @@ namespace Auctioneer.Server.Controllers
         // cancel a sale
         [Route("cancel")]
         [HttpPost, Authorize(Roles = "User")]
-        public async Task<ActionResult<SalesResponseData>> CancelSale(int sale_id)
+        public async Task<ActionResult<SalesResponseData>> CancelSale([FromBody] int sale_id)
         {
             SalesResponseData res = new SalesResponseData();
 
@@ -165,7 +165,7 @@ namespace Auctioneer.Server.Controllers
                 };
 
                 // get the sale from the request
-                var sale = await _appDbContext.Sales.FirstOrDefaultAsync(sale => sale.Id == sale_id);
+                var sale = await _appDbContext.Sales.Include(v => v.User).Include(x => x.Artwork).FirstOrDefaultAsync(sale => sale.Id == sale_id);
 
                 if (sale == null)
                 {
@@ -174,27 +174,25 @@ namespace Auctioneer.Server.Controllers
                     return Ok(res);
                 };
 
-                // check if the user owns the item 
-                bool ownsItem = user.Artworks?.Any(artwork => artwork == sale.Artwork) ?? false;
-
-                if (!ownsItem)
+                // check if the user matches the sale
+                if (sale.User.Id != user_id)
                 {
                     res.Error = true;
-                    res.Message = "Item not found in inventory.";
+                    res.Message = "";
                     return Ok(res);
                 };
 
                 // remove the sale  and add it back to the users inventory
 
                 user.Sales?.Remove(sale);
+                var artwork = await _appDbContext.Artworks.FirstOrDefaultAsync(artwork => artwork.Api_id == sale.Artwork.Api_id);
+                user.Artworks?.Add(artwork);
 
-
-                _appDbContext.Sales.Add(newSale);
                 _appDbContext.SaveChanges();
 
                 res.Error = false;
                 res.User = user;
-                res.Message = "Sale created.";
+                res.Message = "Sale cancelled.";
 
                 return Ok(res);
             }

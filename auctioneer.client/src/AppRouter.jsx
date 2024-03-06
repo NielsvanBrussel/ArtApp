@@ -11,6 +11,7 @@ import Inventory from './pages/Inventory';
 import MySales from './pages/MySales';
 import Artwork from './pages/Artwork';
 import PrivateSales from './pages/PrivateSales';
+import Footer from './components/Footer';
 
 const AppRouter = () => {
 
@@ -41,6 +42,9 @@ const AppRouter = () => {
             </div>
           </div>
         </main>
+        <footer>
+          <Footer />
+        </footer>
       </div> 
     </div>
   )

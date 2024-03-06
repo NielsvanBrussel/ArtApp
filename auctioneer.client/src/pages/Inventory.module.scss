@@ -11,7 +11,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        gap: 3rem;
+        gap: calc(3rem + 2vh);
         margin: 0 auto;
         max-width: 60rem;
         margin: 0 auto;
@@ -20,66 +20,4 @@
 
 
 
-.inventory__item__container__outer {
-    border-bottom: $colour-gold 8px solid;
 
-    .inventory__item__container__inner {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 2vw;
-        .inventory__item__image__container {
-            min-width: 10rem;
-            min-height: 10rem;
-            max-width: 10rem;
-            max-height: 10rem;
-            background-color: $colour-blue;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            h3 {
-                text-align: center;
-            }
-            .inventory__item__image {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-        }
-        .inventory__item__text__container__outer {
-            .inventory__item__text__container__inner {
-                color: $colour-grey-font;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                height: calc(100% - 1rem);
-                margin: 0 0 1rem 0;
-                overflow: hidden;
-                h4 {
-                    margin: 0;
-                    font-size: 1.25rem;
-                }
-                button {
-                    color: $colour-blue;
-                    text-decoration: underline solid transparent;
-                    border: none;
-                    background-color: transparent;
-                    cursor: pointer;
-                    font-weight: bold;
-                    font-size: 1.25rem;
-                    transition: text-decoration 0.5s ease;
-                    text-underline-offset: 4px;
-                    margin: 0;
-                    padding: 0;
-                    text-align: start;
-                }
-                button:hover {
-                    text-decoration: underline solid $colour-gold;
-                }
-            }
-
-        }
-
-    }
-}

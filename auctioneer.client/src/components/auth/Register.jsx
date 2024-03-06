@@ -100,7 +100,8 @@ const Register = () => {
                 </div>
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.form__input__container}>
-                        <input 
+                        <input
+                            autoFocus  
                             className={styles.form__input} 
                             type="text" value={username} 
                             disabled={loading} 
@@ -132,7 +133,7 @@ const Register = () => {
                         />
                     </div>
                     <div className={styles.submit__container}>
-                        {!loading && <button className={styles.button} type="submit">sign up</button>}
+                        {!loading && <button className={styles.button} type="submit">SIGN UP</button>}
                     </div>
                 </form>
                 {/* <p>already have an account? login <Link className={`${styles.link} ${styles.button__left}`} to="/login">here</Link></p> */}

@@ -40,6 +40,7 @@
   overflow: hidden;
   border-bottom: #c29b40 8px solid;
   position: relative;
+  margin-bottom: 3rem;
 }
 
 .carousel__container__outer .carousel__loader {

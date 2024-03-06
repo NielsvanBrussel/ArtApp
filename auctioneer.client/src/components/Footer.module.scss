@@ -1,0 +1,30 @@
+@import '../styles//shared/colours';
+@import '../styles//shared/global';
+@import '../styles//shared/keyframes';
+
+
+.footer__container__outer {
+    background-color: $colour-blue;
+    padding: 1rem 0;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    .footer__container__inner {
+        margin: 0 calc(0.5rem + 4vw);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: calc(100% - 0.5rem - 8vw);
+        .footer__icon__container {
+            display: flex;
+            flex-direction: row;
+            gap: calc(0.25rem + 1vw);
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
