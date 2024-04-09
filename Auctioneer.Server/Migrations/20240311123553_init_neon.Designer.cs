@@ -12,15 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auctioneer.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240111183602_sales")]
-    partial class sales
+    [Migration("20240311123553_init_neon")]
+    partial class init_neon
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -97,11 +97,9 @@ namespace Auctioneer.Server.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("HashedPassword")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");

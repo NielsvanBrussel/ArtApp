@@ -12,6 +12,7 @@ import MySales from './pages/MySales';
 import Artwork from './pages/Artwork';
 import PrivateSales from './pages/PrivateSales';
 import Footer from './components/Footer';
+import Auction from './pages/Auction';
 
 const AppRouter = () => {
 
@@ -30,6 +31,7 @@ const AppRouter = () => {
                 <Route path="*" element={<Navigate to="/" />}/>
                 <Route path='/' element={<Main/>}/>
                 <Route path='/artwork' element={<Artwork />}/>
+                <Route path='/auction' element={<Auction />}/>
                 <Route path='/privatesales' element={<PrivateSales />}/>
                 {authenticated && (
                   <>

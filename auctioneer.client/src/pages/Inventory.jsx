@@ -22,7 +22,6 @@ const Inventory = () => {
     const { user } = useContext(GlobalContext)
 
 
-
     const getInventoryData = async() => {
 
         const artworkIDArray = user.artworks.$values.map(artwork => artwork.api_id)
@@ -45,7 +44,9 @@ const Inventory = () => {
             } catch (error) {
                 console.log(error)
             }
-        } 
+        } else {
+            setLoading(false)
+        }
     }
 
     const sellItem = (item) => {

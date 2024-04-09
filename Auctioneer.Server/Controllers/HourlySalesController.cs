@@ -72,6 +72,7 @@ namespace Auctioneer.Server.Controllers
 
             return responses;
         }
+
         private async Task<string> CreateNewHourlySales(int[] idArray)
         {
 
@@ -93,7 +94,7 @@ namespace Auctioneer.Server.Controllers
 
             //store the data in cache for 1 day
             var expiryTime = DateTimeOffset.Now.AddHours(1);
-            _cacheService.SetData<string>("hourlysales", data, expiryTime);
+            _cacheService.SetData<string>("hourlysales", data, expiryTime, false);
 
             return data;
         }

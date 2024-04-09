@@ -5,7 +5,7 @@
 namespace Auctioneer.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class dbcontextm2m : Migration
+    public partial class init_neon : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

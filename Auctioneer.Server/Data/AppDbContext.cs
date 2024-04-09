@@ -17,7 +17,7 @@ namespace Auctioneer.Server.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseNpgsql(configuration.GetConnectionString("DataBaseConnection"));
+            options.UseNpgsql(configuration.GetConnectionString("DataBaseConnection3"));
         }
 
         public DbSet<User> Users { get; set; }

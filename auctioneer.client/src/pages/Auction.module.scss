@@ -1,0 +1,24 @@
+@import '../styles/shared/colours';
+@import '../styles/shared/keyframes';
+@import '../styles/shared/global';
+
+
+.auction__container {
+    color: $colour-grey-font;
+    .auction__content__container__outer {
+        margin: 0 auto;
+        max-width: 90rem;
+        .auction__content__container__inner {
+            margin: 0 4vw;
+        }
+    }
+    .auction__image__container {
+        width: 100%;
+        height: 20rem;
+        .auction__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

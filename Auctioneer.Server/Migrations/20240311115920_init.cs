@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auctioneer.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class artworksuser : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,8 +31,8 @@ namespace Auctioneer.Server.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Username = table.Column<string>(type: "text", nullable: false),
-                    HashedPassword = table.Column<string>(type: "text", nullable: false),
+                    Username = table.Column<string>(type: "text", nullable: true),
+                    HashedPassword = table.Column<string>(type: "text", nullable: true),
                     CreatedTimestamp = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Currency = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -65,10 +65,45 @@ namespace Auctioneer.Server.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Sales",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ArtworkId = table.Column<int>(type: "integer", nullable: true),
+                    UserId = table.Column<int>(type: "integer", nullable: true),
+                    Price = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sales", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Sales_Artworks_ArtworkId",
+                        column: x => x.ArtworkId,
+                        principalTable: "Artworks",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Sales_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_ArtworkUser_UsersId",
                 table: "ArtworkUser",
                 column: "UsersId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sales_ArtworkId",
+                table: "Sales",
+                column: "ArtworkId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sales_UserId",
+                table: "Sales",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -76,6 +111,9 @@ namespace Auctioneer.Server.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ArtworkUser");
+
+            migrationBuilder.DropTable(
+                name: "Sales");
 
             migrationBuilder.DropTable(
                 name: "Artworks");

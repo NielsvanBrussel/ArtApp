@@ -1,0 +1,120 @@
+@import '../../styles/shared/colours';
+@import '../../styles/shared/keyframes';
+@import '../../styles/shared/global';
+
+
+
+.auction__container {
+    position: relative;
+    display: flex;
+    color: $colour-grey-font;
+    gap: 2%;
+    overflow: hidden;
+    position: relative;
+    .auction__header {
+        font-family: 'WorkSans';
+        font-size: 2rem;
+        margin: 0;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* number of lines to show */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}
+
+.row {
+    flex-direction: row;
+    height: 21rem;
+    width: 100%;
+    .auction__image__container {
+        max-width: 48%;
+        height: 100%;
+    }
+    .auction__text__container__outer {
+        width: 100%;
+        justify-content: center;
+        .auction__text__container__inner {
+            max-width: 30rem;
+        }
+    }
+}
+
+.column {
+    flex-direction: column;
+    width: 30%;
+    .auction__image__container {
+        max-width: 100%;
+        height: 18rem;
+        min-height: 18rem;
+    }
+    .auction__text__container__outer {
+        width: 100%;
+        justify-content: space-between;
+        height: 20rem;
+        .auction__text__container__inner {
+            max-width: 30rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
+
+.future__auctions__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.auction__text__container__outer {
+    display: flex;
+    flex-direction: row;
+    .auction__text__container__inner {
+        p {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* number of lines to show */
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
+
+.auction__button__container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    .icon__container {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+.auction__image__container {
+    width: 100%;
+    .auction__image__error {
+        color: $colour-blue;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+

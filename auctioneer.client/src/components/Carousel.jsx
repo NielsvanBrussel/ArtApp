@@ -17,7 +17,6 @@ const Carousel = () => {
     const [carouselIndex, setCarouselIndex] = useState(0)
     const [ticking, setTicking] = useState(true)
 
-
     const carouselRef = useRef()
 
 
@@ -42,7 +41,6 @@ const Carousel = () => {
         }
     }
     
-
 
     const getHourlySales = useCallback(async () => {
         try {
@@ -101,13 +99,13 @@ const Carousel = () => {
             </div>
             {hourlySalesData && 
                 <div className={styles.carousel__navigation__container}>
-                    <GrFormPrevious className={styles.carousel__navigation__button} size={32} onClick={() => changeItem(-1)}/>
+                    <GrFormPrevious className={styles.carousel__navigation__button} size={30} onClick={() => changeItem(-1)}/>
                     {hourlySalesData.map((item, index) => {
                         return (
                             <div key={index} className={index === carouselIndex ? styles.carousel__navigation__dot__filled : styles.carousel__navigation__dot__empty} onClick={() => setCarouselIndex(index)}></div>
                         )
                     })}
-                    <GrFormNext className={styles.carousel__navigation__button} size={32} onClick={() => changeItem(1)}/>          
+                    <GrFormNext className={styles.carousel__navigation__button} size={30} onClick={() => changeItem(1)}/>          
                 </div>
             }
         </div>

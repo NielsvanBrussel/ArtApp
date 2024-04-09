@@ -28,6 +28,17 @@ public class CacheService : ICacheService
         return default!;
     }
 
+    public TimeSpan GetTTL<T>(string key)
+    {
+        var value = _cacheDB.KeyTimeToLive(key);
+        if (value != null)
+        {
+      
+            return value.Value;
+        }
+        return default!;
+    }
+
     public object RemoveData(string key)
     {
         var _exists = _cacheDB.KeyExists(key);
@@ -38,10 +49,15 @@ public class CacheService : ICacheService
         return false;
     }
 
-    public bool SetData<T>(string key, T value, DateTimeOffset expirationTime)
+    public bool SetData<T>(string key, T value, DateTimeOffset expirationTime, bool persistent)
     {
         var expiryTime = expirationTime.DateTime.Subtract(DateTime.Now);
         var x = JsonSerializer.Serialize(value);
+
+        if (persistent)
+        {
+            return _cacheDB.StringSet(key, x);
+        }
 
         return _cacheDB.StringSet(key, x, expiryTime);
     }

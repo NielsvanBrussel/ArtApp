@@ -68,7 +68,7 @@ namespace Auctioneer.Server.Controllers
                         })
                         .ToListAsync();
                     var expiryTime = DateTimeOffset.Now.AddHours(1);
-                    _cacheService.SetData<List<SaleListItem>>("usersales", sales, expiryTime);
+                    _cacheService.SetData<List<SaleListItem>>("usersales", sales, expiryTime, false);
                     return Ok(sales);
                 }
             }

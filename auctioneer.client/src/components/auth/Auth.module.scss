@@ -18,7 +18,8 @@
         .error__container {
             text-align: center;
             color: $colour-gold;
-            min-height: 10rem;
+            height: 30vh;
+            max-height: 10rem;
         }
         .form {
            margin: 2rem 0rem; 
@@ -32,7 +33,7 @@
             width: 100%;
             overflow: hidden;
             padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: calc(1rem + 2vh);
             background-color: transparent;
             border-bottom: solid 2px $colour-gold;
             outline: none;

@@ -12,15 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auctioneer.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240108202817_artworks & user")]
-    partial class artworksuser
+    [Migration("20240311115920_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -56,6 +56,32 @@ namespace Auctioneer.Server.Migrations
                     b.ToTable("Artworks");
                 });
 
+            modelBuilder.Entity("Auctioneer.Server.Models.Sale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ArtworkId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArtworkId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Sales");
+                });
+
             modelBuilder.Entity("Auctioneer.Server.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -71,11 +97,9 @@ namespace Auctioneer.Server.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("HashedPassword")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -96,6 +120,26 @@ namespace Auctioneer.Server.Migrations
                         .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Auctioneer.Server.Models.Sale", b =>
+                {
+                    b.HasOne("Auctioneer.Server.Models.Artwork", "Artwork")
+                        .WithMany()
+                        .HasForeignKey("ArtworkId");
+
+                    b.HasOne("Auctioneer.Server.Models.User", "User")
+                        .WithMany("Sales")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Artwork");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Auctioneer.Server.Models.User", b =>
+                {
+                    b.Navigation("Sales");
                 });
 #pragma warning restore 612, 618
         }

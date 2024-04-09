@@ -86,7 +86,7 @@ const Register = () => {
                             color={"#c29b40"}
                             loading={loading}
                             cssOverride={override}
-                            size={140}
+                            size={120}
                             aria-label="Loading Spinner"
                             data-testid="loader"
                         />
