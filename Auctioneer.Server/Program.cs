@@ -3,6 +3,7 @@ using Auctioneer.Server.Middleware;
 using Auctioneer.Server.Services;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.IdentityModel.Tokens;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -30,6 +31,13 @@ builder.Services.AddSingleton<AppDbContext>();
 builder.Services.AddScoped<ICacheService, CacheService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddTransient<TestMiddleware>();
+
+builder.Services.AddHttpClient("artic", (serviceProvider, httpClient) =>
+{
+    httpClient.DefaultRequestHeaders.Add("AIC-User-Agent", "art-app-test (niels_vanbrussel@hotmail.com)");
+    httpClient.DefaultRequestHeaders.Add("user-agent", "art-app-test (niels_vanbrussel@hotmail.com)");
+    httpClient.BaseAddress = new Uri("https://api.artic.edu/api/v1/");
+});
 
 
 var app = builder.Build();

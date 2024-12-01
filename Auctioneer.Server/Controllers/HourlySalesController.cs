@@ -1,6 +1,8 @@
 ﻿using Auctioneer.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using System.Net.Http;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,10 +15,12 @@ namespace Auctioneer.Server.Controllers
     {
 
         private readonly ICacheService _cacheService;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public HourlySalesController(ICacheService cacheService)
+        public HourlySalesController(ICacheService cacheService, IHttpClientFactory httpClientFactory)
         {
             _cacheService = cacheService;
+            _httpClientFactory = httpClientFactory;
         }
 
         public class HourlySalesResponseData
@@ -33,23 +37,14 @@ namespace Auctioneer.Server.Controllers
                 Random rnd = new Random();
                 int pageNumber = rnd.Next(1, 10300);
                 var uriString = $"https://api.artic.edu/api/v1/artworks?&page={pageNumber}&fields=id";
-                var request = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Get,
-                    RequestUri = new Uri(uriString),
-                    Headers = { },
-                };
 
-                using (var response = await client.SendAsync(request))
-                {
-                    response.EnsureSuccessStatusCode();
-                    var body = await response.Content.ReadAsStringAsync();
-                    dynamic dataParsed = JObject.Parse(body);
-                    var artworkIDArray = dataParsed.data;
-                    var rndm = rnd.Next(0, artworkIDArray.Count);
-                    var artworkID = artworkIDArray[rndm].id.ToObject<int>();
-                    return artworkID;
-                }
+                string data = await client.GetStringAsync(uriString);
+                dynamic dataParsed = JObject.Parse(data);
+                var artworkIDArray = dataParsed.data;
+                var rndm = rnd.Next(0, artworkIDArray.Count);
+                var artworkID = artworkIDArray[rndm].id.ToObject<int>();
+                return artworkID;
+
             }
             catch
             {
@@ -57,9 +52,8 @@ namespace Auctioneer.Server.Controllers
             }
         }
 
-        private async Task<int[]> GetRandomArtworkIDs()
+        private async Task<int[]> GetRandomArtworkIDs(HttpClient client)
         {
-            var client = new HttpClient();
 
             var tasks = new List<Task<int>>();
 
@@ -73,24 +67,14 @@ namespace Auctioneer.Server.Controllers
             return responses;
         }
 
-        private async Task<string> CreateNewHourlySales(int[] idArray)
+        private async Task<string> CreateNewHourlySales(int[] idArray, HttpClient client)
         {
 
             // fetch the new data based on the random ID's generated
-            var client = new HttpClient();
             var data = "";
-            var uriString = $"https://api.artic.edu/api/v1/artworks?ids={idArray[0]},{idArray[1]},{idArray[2]},{idArray[3]},{idArray[4]}&fields=id,title,date_display,artist_display,artwork_type_title,category_titles,image_id,medium_display,term_titles";
-            var request = new HttpRequestMessage
-            {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri(uriString),
-                Headers = { },
-            };
-            using (var response = await client.SendAsync(request))
-            {
-                response.EnsureSuccessStatusCode();
-                data = await response.Content.ReadAsStringAsync();
-            }
+            var uriString = $"artworks?ids={idArray[0]},{idArray[1]},{idArray[2]},{idArray[3]},{idArray[4]}&fields=id,title,date_display,artist_display,artwork_type_title,category_titles,image_id,medium_display,term_titles";
+
+            data = await client.GetStringAsync(uriString);
 
             //store the data in cache for 1 day
             var expiryTime = DateTimeOffset.Now.AddHours(1);
@@ -109,6 +93,10 @@ namespace Auctioneer.Server.Controllers
             try
             {
                 //check the cache for data, if the cachedata has expired create new hourlysales
+
+
+                //_cacheService.RemoveData("hourlysales");
+
                 var cacheData = _cacheService.GetData<string>("hourlysales");
                 if (cacheData != null)
                 {
@@ -118,8 +106,9 @@ namespace Auctioneer.Server.Controllers
                 }
                 else
                 {
-                    var idArray = await GetRandomArtworkIDs();
-                    var newSales = await CreateNewHourlySales(idArray);
+                    var client = _httpClientFactory.CreateClient("artic");
+                    var idArray = await GetRandomArtworkIDs(client);
+                    var newSales = await CreateNewHourlySales(idArray, client);
                     res.Data = newSales;
                     res.Error = false;
                     return Ok(res);

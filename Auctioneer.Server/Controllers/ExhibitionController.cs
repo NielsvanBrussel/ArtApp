@@ -14,10 +14,12 @@ namespace Auctioneer.Server.Controllers
     public class ExhibitionController : ControllerBase
     {
         private readonly ICacheService _cacheService;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public ExhibitionController(ICacheService cacheService)
+        public ExhibitionController(ICacheService cacheService, IHttpClientFactory httpClientFactory)
         {
             _cacheService = cacheService;
+            _httpClientFactory = httpClientFactory;
         }
 
         public class ExhibitionResponseData
@@ -53,45 +55,38 @@ namespace Auctioneer.Server.Controllers
             {
                 Random rnd = new Random();
                 int pageNumber = rnd.Next(1, 517);
-                var uriString = $"https://api.artic.edu/api/v1/exhibitions?fields=id,title,short_description,web_url,artwork_ids,image_url&page={pageNumber}";
-                var request = new HttpRequestMessage
+                var uriString = $"exhibitions?fields=id,title,short_description,web_url,artwork_ids,image_url&page={pageNumber}";
+
+
+                string data = await client.GetStringAsync(uriString);
+
+                dynamic dataParsed = JObject.Parse(data);
+                List<Exhibition> exhibitionsUnshuffled = dataParsed.data.ToObject<List<Exhibition>>();
+
+                List<Exhibition> exhibitions = Shuffle(exhibitionsUnshuffled);
+                Exhibition exhibition = new Exhibition();
+
+
+                bool hasNoNullValues = false;
+                int index = 0;
+
+                while (hasNoNullValues == false)
                 {
-                    Method = HttpMethod.Get,
-                    RequestUri = new Uri(uriString),
-                    Headers = { },
-                };
-
-                using (var response = await client.SendAsync(request))
-                {
-                    response.EnsureSuccessStatusCode();
-                    var body = await response.Content.ReadAsStringAsync();
-                    dynamic dataParsed = JObject.Parse(body);
-                    List<Exhibition> exhibitionsUnshuffled = dataParsed.data.ToObject<List<Exhibition>>();
-
-                    List<Exhibition> exhibitions = Shuffle(exhibitionsUnshuffled);
-                    Exhibition exhibition = new Exhibition();
-  
-
-                    bool hasNoNullValues = false;
-                    int index = 0;
-
-                    while (hasNoNullValues == false)
+                    exhibition = exhibitions[index];
+                    hasNoNullValues = exhibition.Artwork_ids.Count > 2 && exhibition.GetType().GetProperties().All(p => p.GetValue(exhibition, null) != null);
+                    if (hasNoNullValues == false)
                     {
-                        exhibition = exhibitions[index];
-                        hasNoNullValues = exhibition.Artwork_ids.Count > 2 && exhibition.GetType().GetProperties().All(p => p.GetValue(exhibition, null) != null);
-                        if (hasNoNullValues == false)
+                        if (index + 1 == exhibitions.Count)
                         {
-                            if (index + 1 == exhibitions.Count)
-                            {
-                                exhibition = await GetRandomExhibition(client);
-                                return exhibition;
-                            }
-                            index++;
+                            exhibition = await GetRandomExhibition(client);
+                            return exhibition;
                         }
+                        index++;
                     }
-
-                    return exhibition;
                 }
+
+                return exhibition;
+
             }
             catch
             {
@@ -105,7 +100,6 @@ namespace Auctioneer.Server.Controllers
             List<Exhibition> exhibitions = new List<Exhibition>(4);
             try
             {
-                var client = new HttpClient();
 
                 List<string> cachedData = [
                     _cacheService.GetData<string>("exhibition_1"),
@@ -113,7 +107,6 @@ namespace Auctioneer.Server.Controllers
                     _cacheService.GetData<string>("exhibition_3"),
                     _cacheService.GetData<string>("exhibition_4")
                 ];
-
 
                 if (cachedData[0] != null && cachedData[1] != null && cachedData[2] != null && cachedData[3] != null)
                 {
@@ -128,6 +121,8 @@ namespace Auctioneer.Server.Controllers
                 }
                 else
                 {
+                    var client = _httpClientFactory.CreateClient("artic");
+
                     if (cachedData[1] != null & cachedData[2] != null & cachedData[3] != null)
                     {
                         var expiryTime = DateTimeOffset.Now.AddHours(1);
